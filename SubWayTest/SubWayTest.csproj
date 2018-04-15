@@ -286,10 +286,16 @@
     </Content>
     <Content Include="app\package.json" />
     <Content Include="app\tsconfig.json" />
+    <Content Include="i18n\en.json" />
+    <Content Include="i18n\fr.json" />
+    <Content Include="i18n\zh-tw.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -327,9 +333,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\subway\integer.directive.ts" />
     <TypeScriptCompile Include="app\subway\main.ts" />
     <TypeScriptCompile Include="app\subway\subway.component.ts" />
     <TypeScriptCompile Include="app\subway\subway.module.ts" />
+    <TypeScriptCompile Include="app\subway\subway.service.ts" />
+    <TypeScriptCompile Include="app\typings.d.ts" />
+    <TypeScriptCompile Include="typings.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
