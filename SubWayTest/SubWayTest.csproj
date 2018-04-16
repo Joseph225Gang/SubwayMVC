@@ -236,7 +236,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CancelBookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchBookingController.cs" />
+    <Compile Include="Controllers\SearchSeduleController.cs" />
     <Compile Include="Controllers\SubwayController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -251,18 +254,39 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\cancelBooking\cancelBooking.html" />
+    <Content Include="app\searchBooking\searchBooking.html" />
+    <Content Include="app\searchSedule\searchSedule.html" />
     <Content Include="app\subway\subway.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\jquery-ui.css" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\jquery-ui.css" />
+    <Content Include="assets\css\Site.css" />
+    <Content Include="assets\img\train1.jpg" />
+    <Content Include="assets\img\train2.jpg" />
+    <Content Include="assets\img\train3.gif" />
+    <Content Include="assets\js\ai.0.22.9-build00167.js" />
+    <Content Include="assets\js\ai.0.22.9-build00167.min.js" />
+    <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <None Include="assets\js\jquery-1.10.2.intellisense.js" />
+    <Content Include="assets\js\jquery-1.10.2.js" />
+    <Content Include="assets\js\jquery-1.10.2.min.js" />
+    <Content Include="assets\js\jquery-3.2.1.min.js" />
+    <Content Include="assets\js\jquery-ui.js" />
+    <None Include="assets\js\jquery.validate-vsdoc.js" />
+    <Content Include="assets\js\jquery.validate.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.js" />
+    <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="assets\js\modernizr-2.6.2.js" />
+    <Content Include="assets\js\respond.js" />
+    <Content Include="assets\js\respond.min.js" />
+    <None Include="assets\js\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\ai.0.22.9-build00167.js" />
-    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -290,19 +314,7 @@
     <Content Include="i18n\en.json" />
     <Content Include="i18n\fr.json" />
     <Content Include="i18n\zh-tw.json" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.2.1.min.js" />
-    <Content Include="Scripts\jquery-ui.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
+    <Content Include="assets\js\jquery-1.10.2.min.map" />
     <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -312,14 +324,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Subway\Index.cshtml" />
+    <Content Include="utility\destination.json" />
+    <Content Include="utility\itinerary.json" />
+    <Content Include="Views\SearchBooking\Index.cshtml" />
+    <Content Include="Views\CancelBooking\Index.cshtml" />
+    <Content Include="Views\SearchSedule\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,9 +345,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\cancelBooking\cancelBooking.component.ts" />
+    <TypeScriptCompile Include="app\cancelBooking\cancelBooking.module.ts" />
+    <TypeScriptCompile Include="app\cancelBooking\cancelBooking.service.ts" />
+    <TypeScriptCompile Include="app\cancelBooking\main.ts" />
+    <TypeScriptCompile Include="app\searchBooking\main.ts" />
+    <TypeScriptCompile Include="app\searchBooking\searchBooking.component.ts" />
+    <TypeScriptCompile Include="app\searchBooking\searchBooking.module.ts" />
+    <TypeScriptCompile Include="app\searchBooking\searchBooking.service.ts" />
+    <TypeScriptCompile Include="app\searchSedule\main.ts" />
+    <TypeScriptCompile Include="app\searchSedule\searchSedule.component.ts" />
+    <TypeScriptCompile Include="app\searchSedule\searchSedule.module.ts" />
+    <TypeScriptCompile Include="app\searchSedule\searchSedule.service.ts" />
     <TypeScriptCompile Include="app\subway\integer.directive.ts" />
     <TypeScriptCompile Include="app\subway\main.ts" />
     <TypeScriptCompile Include="app\subway\subway.component.ts" />

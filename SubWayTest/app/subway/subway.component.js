@@ -10,28 +10,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_translate_1 = require("ng2-translate");
 var subway_service_1 = require("./subway.service");
+var ng2_translate_1 = require("ng2-translate");
+var animations_1 = require("@angular/animations");
 var SubWayComponent = (function () {
-    function SubWayComponent(translate) {
+    function SubWayComponent(translate, subwayService) {
         this.translate = translate;
+        this.subwayService = subwayService;
         this.Status = subway_service_1.Status;
         this.status = subway_service_1.Status.Start;
+        this.destinationList = [];
+        this.adultTicketList = [];
+        this.childTicketList = [];
+        this.currentTicketList = [];
         this.numberTicket = 0;
-        this.typeTicket = '';
+        this.adultAmount = 0;
+        this.childAmount = 0;
         this.amount = 0;
-        this.hHi = new HHi();
-        this.hi = new Hi();
+        this.totalAmount = 0;
+        this.visibility = 'shown';
         translate.addLangs(["en", "zh-tw"]);
         translate.setDefaultLang('zh-tw');
         var browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|zh-tw/) ? browserLang : 'zh-tw');
     }
-    SubWayComponent.prototype.gotoHome = function () {
-        location.href = './Home';
+    SubWayComponent.prototype.changeOpacity = function () {
+        this.visibility = this.visibility === 'shown' ? 'hidden' : 'shown';
+    };
+    SubWayComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.subwayService.asyncGetItineraryPrice().subscribe(function (resp) {
+            _this.adultTicketList = resp.Adult;
+            _this.childTicketList = resp.Child;
+        }, function (error) {
+            alert(error.json().message);
+        });
+    };
+    SubWayComponent.prototype.navigateSearchSedule = function () {
+        location.href = "./SearchSedule";
+    };
+    SubWayComponent.prototype.navigateSearchBooking = function () {
+        location.href = "./SearchBooking";
+    };
+    SubWayComponent.prototype.navigateCancelBooking = function () {
+        location.href = "./CancelBooking";
     };
     SubWayComponent.prototype.enterBuyStatus = function () {
+        var _this = this;
         this.status = subway_service_1.Status.Buy;
+        this.subwayService.asyncGetDestinationList().subscribe(function (resp) {
+            _this.setDatePicker();
+            _this.destinationList = resp;
+            _this.showPrice();
+            _this.currentLang = _this.translate.currentLang;
+        }, function (error) {
+        });
     };
     SubWayComponent.prototype.setDatePicker = function () {
         $('#destinationDate').datepicker();
@@ -39,42 +72,50 @@ var SubWayComponent = (function () {
     };
     SubWayComponent.prototype.finializePurchaseStatus = function () {
         this.status = subway_service_1.Status.Finish;
-        this.typeTicket = $('select').val().toString().substring(0, 3);
-        this.amount = this.numberTicket * parseInt($('select').val().toString().substring(4, 7));
+        this.totalAmount = this.getFinalPrice();
+    };
+    SubWayComponent.prototype.showPrice = function () {
+        var fromDestination = $('select').eq(0).val();
+        var toDestination = $('select').eq(1).val();
+        var adultPos = this.adultTicketList.filter(function (item) {
+            return item.from == fromDestination && item.to == toDestination;
+        });
+        var childPos = this.childTicketList.filter(function (item) {
+            return item.from == fromDestination && item.to == toDestination;
+        });
+        if (adultPos.length == 0 || childPos.length == 0)
+            return;
+        this.adultAmount = adultPos[0].amount;
+        this.childAmount = childPos[0].amount;
+        if ($('select').eq(2).val() == 'adult')
+            this.amount = typeof (adultPos[0].amount) != 'undefined' ? this.adultAmount : 0;
+        else
+            this.amount = typeof (childPos[0].amount) != 'undefined' ? this.childAmount : 0;
+    };
+    SubWayComponent.prototype.getFinalPrice = function () {
+        this.numberTicket = parseInt($('input').eq(2).val().toString());
+        return this.numberTicket * this.amount;
     };
     SubWayComponent.prototype.backtoStart = function () {
         location.reload();
     };
-    SubWayComponent.prototype.choiceHello = function (callback, data, stackUpData) {
-        alert(data.num);
-        callback();
-        stackUpData.push(data);
-        console.log(stackUpData);
-        console.log(this.hHi);
-    };
-    SubWayComponent.prototype.sayHello = function () {
-        alert('hi');
-    };
     SubWayComponent = __decorate([
         core_1.Component({
-            selector: 'subwayComponent',
-            templateUrl: './app/subway/subway.html'
+            selector: 'subWayComponent',
+            templateUrl: './app/subway/subway.html',
+            providers: [subway_service_1.SubWayService],
+            animations: [
+                animations_1.trigger('visibilityChanged', [
+                    animations_1.state('shown', animations_1.style({ opacity: 1 })),
+                    animations_1.state('hidden', animations_1.style({ opacity: 0 })),
+                    animations_1.transition('shown => hidden', animations_1.animate('600ms')),
+                    animations_1.transition('hidden => shown', animations_1.animate('300ms')),
+                ])
+            ]
         }),
-        __metadata("design:paramtypes", [ng2_translate_1.TranslateService])
+        __metadata("design:paramtypes", [ng2_translate_1.TranslateService, subway_service_1.SubWayService])
     ], SubWayComponent);
     return SubWayComponent;
 }());
 exports.SubWayComponent = SubWayComponent;
-var Hi = (function () {
-    function Hi() {
-        this.num = 5;
-    }
-    return Hi;
-}());
-var HHi = (function () {
-    function HHi() {
-        this.hi = [];
-    }
-    return HHi;
-}());
 //# sourceMappingURL=subway.component.js.map
