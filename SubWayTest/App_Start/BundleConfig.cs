@@ -9,25 +9,25 @@ namespace SubWayTest
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Assets/js/jquery-{version}.js",
-                        "~/Assets/js/jquery-3.2.1.min.js",
-                        "~/Assets/js/jquery-ui.js"));
+                        "~/assets/js/jquery-{version}.js",
+                        "~/assets/js/jquery-3.2.1.min.js",
+                        "~/assets/js/jquery-ui.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Assets/modernizr-*"));
+                        "~/assets/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Assets/js/bootstrap.js",
-                      "~/Assets/js/respond.js"
+                      "~/assets/js/bootstrap.js",
+                      "~/assets/js/respond.js"
                       ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Assets/css/bootstrap.css",
-                      "~/Assets/css/site.css",
-                      "~/Assets/css/jquery-ui.css",
-                      "~/Assets/css/style.min.css"));
+                      "~/assets/css/bootstrap.css",
+                      "~/assets/css/site.css",
+                      "~/assets/css/jquery-ui.css",
+                      "~/assets/css/style.min.css"));
         }
     }
 }
