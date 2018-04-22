@@ -259,31 +259,38 @@
     <Content Include="app\searchSedule\searchSedule.html" />
     <Content Include="app\subway\subway.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="assets\css\bootstrap.css" />
-    <Content Include="assets\css\bootstrap.min.css" />
-    <Content Include="assets\css\jquery-ui.css" />
-    <Content Include="assets\css\Site.css" />
-    <Content Include="assets\img\train1.jpg" />
-    <Content Include="assets\img\train2.jpg" />
-    <Content Include="assets\img\train3.gif" />
-    <Content Include="assets\js\ai.0.22.9-build00167.js" />
-    <Content Include="assets\js\ai.0.22.9-build00167.min.js" />
-    <Content Include="assets\js\bootstrap.js" />
-    <Content Include="assets\js\bootstrap.min.js" />
-    <None Include="assets\js\jquery-1.10.2.intellisense.js" />
-    <Content Include="assets\js\jquery-1.10.2.js" />
-    <Content Include="assets\js\jquery-1.10.2.min.js" />
-    <Content Include="assets\js\jquery-3.2.1.min.js" />
-    <Content Include="assets\js\jquery-ui.js" />
-    <None Include="assets\js\jquery.validate-vsdoc.js" />
-    <Content Include="assets\js\jquery.validate.js" />
-    <Content Include="assets\js\jquery.validate.min.js" />
-    <Content Include="assets\js\jquery.validate.unobtrusive.js" />
-    <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
-    <Content Include="assets\js\modernizr-2.6.2.js" />
-    <Content Include="assets\js\respond.js" />
-    <Content Include="assets\js\respond.min.js" />
-    <None Include="assets\js\_references.js" />
+    <Content Include="Assets\css\bootstrap.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\jquery-ui.css" />
+    <Content Include="Assets\css\Site.css" />
+    <Content Include="Assets\css\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
+    <Content Include="Assets\css\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Assets\img\train1.jpg" />
+    <Content Include="Assets\img\train2.jpg" />
+    <Content Include="Assets\img\train3.gif" />
+    <Content Include="Assets\js\ai.0.22.9-build00167.js" />
+    <Content Include="Assets\js\ai.0.22.9-build00167.min.js" />
+    <Content Include="Assets\js\bootstrap.js" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\css\style.scss" />
+    <None Include="Assets\js\jquery-1.10.2.intellisense.js" />
+    <Content Include="Assets\js\jquery-1.10.2.js" />
+    <Content Include="Assets\js\jquery-1.10.2.min.js" />
+    <Content Include="Assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Assets\js\jquery-ui.js" />
+    <None Include="Assets\js\jquery.validate-vsdoc.js" />
+    <Content Include="Assets\js\jquery.validate.js" />
+    <Content Include="Assets\js\jquery.validate.min.js" />
+    <Content Include="Assets\js\jquery.validate.unobtrusive.js" />
+    <Content Include="Assets\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Assets\js\modernizr-2.6.2.js" />
+    <Content Include="Assets\js\respond.js" />
+    <Content Include="Assets\js\respond.min.js" />
+    <None Include="Assets\js\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -314,7 +321,7 @@
     <Content Include="i18n\en.json" />
     <Content Include="i18n\fr.json" />
     <Content Include="i18n\zh-tw.json" />
-    <Content Include="assets\js\jquery-1.10.2.min.map" />
+    <Content Include="Assets\js\jquery-1.10.2.min.map" />
     <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -344,6 +351,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
