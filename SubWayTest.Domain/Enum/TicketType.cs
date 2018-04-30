@@ -10,6 +10,7 @@ namespace SubWayTest.Domain
     {
         None,
         Children,
-        Adult
+        Adult,
+        Privilege
     }
 }
