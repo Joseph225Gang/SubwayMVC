@@ -1,0 +1,8 @@
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\bin\Debug\SubWayTest.Domain.dll
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\bin\Debug\SubWayTest.Domain.pdb
+D:\Visual Studio\SubwayMVC\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache

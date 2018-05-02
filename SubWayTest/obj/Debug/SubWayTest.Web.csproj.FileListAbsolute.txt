@@ -175,6 +175,6 @@ D:\Visual Studio\SubwayMVC\SubWayTest\bin\Microsoft.Owin.Security.Google.xml
 D:\Visual Studio\SubwayMVC\SubWayTest\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Visual Studio\SubwayMVC\SubWayTest\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Visual Studio\SubwayMVC\SubWayTest\bin\System.Web.Http.Owin.xml
-D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.Web.csprojResolveAssemblyReference.cache
 D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.dll
 D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.Web.csprojResolveAssemblyReference.cache

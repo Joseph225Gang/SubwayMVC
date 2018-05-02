@@ -1,0 +1,5 @@
+D:\Visual Studio\SubwayMVC\SubWayTest.Domain\bin\Debug\SubWayTest.Domain.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Domain\bin\Debug\SubWayTest.Domain.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest.Domain\obj\Debug\SubWayTest.Domain.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Domain\obj\Debug\SubWayTest.Domain.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest.Domain\obj\Debug\SubWayTest.Domain.csprojResolveAssemblyReference.cache

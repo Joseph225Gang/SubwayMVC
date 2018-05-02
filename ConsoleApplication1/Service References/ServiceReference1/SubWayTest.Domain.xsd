@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SubWayTest.Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SubWayTest.Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfSubWayMemberTicketInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubWayMemberTicketInfo" nillable="true" type="tns:SubWayMemberTicketInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubWayMemberTicketInfo" nillable="true" type="tns:ArrayOfSubWayMemberTicketInfo" />
+  <xs:complexType name="SubWayMemberTicketInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SubwayMember" nillable="true" type="tns:SubwayMember" />
+      <xs:element minOccurs="0" name="SubwayMemberId" type="ser:guid" />
+      <xs:element minOccurs="0" name="SubwayTicket" nillable="true" type="tns:ArrayOfSubWayTicket" />
+      <xs:element minOccurs="0" name="SubwayTicketId" type="ser:guid" />
+      <xs:element minOccurs="0" name="id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubWayMemberTicketInfo" nillable="true" type="tns:SubWayMemberTicketInfo" />
+  <xs:complexType name="SubwayMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MemberId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MemberName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PerosonalId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubwayMember" nillable="true" type="tns:SubwayMember" />
+  <xs:complexType name="ArrayOfSubWayTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubWayTicket" nillable="true" type="tns:SubWayTicket" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubWayTicket" nillable="true" type="tns:ArrayOfSubWayTicket" />
+  <xs:complexType name="SubWayTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromPlace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SubWayMemberTicketInfo" nillable="true" type="tns:SubWayMemberTicketInfo" />
+      <xs:element minOccurs="0" name="SubWayMemberTicketInfoId" type="ser:guid" />
+      <xs:element minOccurs="0" name="TicketPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TicketType" type="tns:TicketType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubWayTicket" nillable="true" type="tns:SubWayTicket" />
+  <xs:simpleType name="TicketType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Children" />
+      <xs:enumeration value="Adult" />
+      <xs:enumeration value="Privilege" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TicketType" nillable="true" type="tns:TicketType" />
+  <xs:complexType name="ArrayOfSubwayMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubwayMember" nillable="true" type="tns:SubwayMember" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubwayMember" nillable="true" type="tns:ArrayOfSubwayMember" />
+</xs:schema>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SubwayTest.Repository" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SubwayTest.Repository" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SubWayTest.Domain" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Entity" />
+  <xs:complexType name="SubwayContext">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Entity" base="q1:DbContext">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SubWayTest.Domain" minOccurs="0" name="SubWayMemberTicketInfo" nillable="true" type="q2:ArrayOfSubWayMemberTicketInfo" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SubWayTest.Domain" minOccurs="0" name="SubWayTicket" nillable="true" type="q3:ArrayOfSubWayTicket" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SubWayTest.Domain" minOccurs="0" name="SubwayMember" nillable="true" type="q4:ArrayOfSubwayMember" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubwayContext" nillable="true" type="tns:SubwayContext" />
+</xs:schema>
