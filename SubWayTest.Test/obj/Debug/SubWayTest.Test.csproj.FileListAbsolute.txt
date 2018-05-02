@@ -1,0 +1,14 @@
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Test.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Test.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Domain.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Repository.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\EntityFramework.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Domain.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Repository.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\EntityFramework.xml
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\obj\Debug\SubWayTest.Test.csprojResolveAssemblyReference.cache
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\obj\Debug\SubWayTest.Test.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\obj\Debug\SubWayTest.Test.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\SubWayTest.Test.dll.config
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\EntityFramework.SqlServer.dll
+D:\Visual Studio\SubwayMVC\SubWayTest.Test\bin\Debug\EntityFramework.SqlServer.xml
