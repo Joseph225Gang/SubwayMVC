@@ -7,6 +7,7 @@ export class SubWayService {
     constructor(
         private http: Http
     ) { };
+    private SearchApi: string = 'api/SubwayTicketApi';
 
     asyncGetDestinationList() {
         return this.http.get('../../utility/destination.json').map((resp: Response) => {
@@ -15,6 +16,15 @@ export class SubWayService {
     }
     asyncGetItineraryPrice() {
         return this.http.get('../../utility/itinerary.json').map((resp: Response) => {
+            return resp.json();
+        });
+    }
+
+    asyncIndex() {
+        let body = null;
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.SearchApi + `/Index`, body, options).map((resp: Response) => {
             return resp.json();
         });
     }

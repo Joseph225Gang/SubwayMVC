@@ -202,6 +202,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\SubwayTicketApiController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -343,6 +344,7 @@
     <Content Include="Views\SearchBooking\Index.cshtml" />
     <Content Include="Views\CancelBooking\Index.cshtml" />
     <Content Include="Views\SearchSedule\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\SubWayTest.Web.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,6 +383,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SubWayTest.Domain\SubWayTest.Domain.csproj">
+      <Project>{81550a30-f488-4ae5-9500-434fb9ac899e}</Project>
+      <Name>SubWayTest.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SubWayTest.Repository\SubWayTest.Repository.csproj">
+      <Project>{1b986782-5fb3-4abd-8efd-f186829a09bd}</Project>
+      <Name>SubWayTest.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

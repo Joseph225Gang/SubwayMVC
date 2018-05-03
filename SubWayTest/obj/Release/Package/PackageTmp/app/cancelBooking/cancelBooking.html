@@ -1,0 +1,58 @@
+﻿<style>
+    * {
+        font-size: 32px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    button{
+        border-radius:12px;
+    }
+</style>
+<section *ngIf="status==Status.Search">
+    <div class="col-md-1"></div>
+    <label>身分證</label>
+    <br />
+    <div class="col-md-1"></div>
+    <input type="text" class="col-md-8" />
+    <div class="col-md-3"></div>
+    <br /><br />
+    <div class="col-md-1"></div>
+    <label>電腦代碼</label>
+    <br />
+    <div class="col-md-1"></div>
+    <input type="text" class="col-md-8" />
+    <div class="col-md-3"></div><br /><br />
+    <div class="col-md-1"></div>
+    <button class="btn btn-primary" (click)="goToStatusResult()">查詢</button>
+</section>
+<section *ngIf="status==Status.Result">
+    <table class="table table-bordered table-responsive col-md-8">
+        <thead>
+            <tr>
+                <th class="col-md-3">{{'HOME.STARTINGPOINT' | translate }}->{{'HOME.DESTINATION' | translate}}</th>
+                <th class="col-md-3">{{'HOME.TIME' | translate }}</th>
+                <th class="col-md-3">價錢</th>
+                <th>刪除</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-md-3">台北->基隆</td>
+                <td class="col-md-3">2019/02/02&nbsp;&nbsp;8:25AM->9:00AM</td>
+                <td class="col-md-3">$380</td>
+                <td class="col-md-3"><button (click)="removeBooking()">刪除</button></td>
+            </tr>
+            <tr>
+                <td class="col-md-3">台北->桃園</td>
+                <td class="col-md-3">2019/02/02&nbsp;&nbsp;8:25AM->9:00AM</td>
+                <td class="col-md-3">$400</td>
+                <td class="col-md-3"><button (click)="removeBooking()">刪除</button></td>
+            </tr>
+            <tr>
+                <td class="col-md-3">桃園->台北</td>
+                <td class="col-md-3">2019/02/02&nbsp;&nbsp;9:25AM->10:00AM</td>
+                <td class="col-md-3">$400</td>
+                <td class="col-md-3"><button (click)="removeBooking()">刪除</button></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

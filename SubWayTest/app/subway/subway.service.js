@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 var SubWayService = (function () {
     function SubWayService(http) {
         this.http = http;
+        this.SearchApi = 'api/SubwayTicketApi';
     }
     ;
     SubWayService.prototype.asyncGetDestinationList = function () {
@@ -23,6 +24,14 @@ var SubWayService = (function () {
     };
     SubWayService.prototype.asyncGetItineraryPrice = function () {
         return this.http.get('../../utility/itinerary.json').map(function (resp) {
+            return resp.json();
+        });
+    };
+    SubWayService.prototype.asyncIndex = function () {
+        var body = null;
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.SearchApi + "/Index", body, options).map(function (resp) {
             return resp.json();
         });
     };

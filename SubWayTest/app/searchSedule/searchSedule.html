@@ -36,6 +36,28 @@
 </section>
 <section *ngIf="status==Status.Search">
     <button (click)="backToSchedule()">回到上一頁</button>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>出發時間</th>
+                <th>抵達時間</th>
+                <th>出發地</th>
+                <th>抵達點</th>
+                <th>價格</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of ticketList; let i=index;">
+                <td>{{dateFormat(item.StartTime)}}</td>
+                <td>{{dateFormat(item.ArrivalTime)}}</td>
+                <td>{{item.FromPlace}}</td>
+                <td>{{item.Destination}}</td>
+                <td>{{item.TicketPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
     <table class="table table-bordered table-responsive col-md-8">
         <thead>
             <tr>

@@ -58,7 +58,7 @@ namespace SubWayTest.Domain
         [DataMember]
         public string Password { get; set; }
 
-        //[DataMember]
-        //public virtual SubWayMemberTicketInfo SubWayMemberTicketInfo { get; set; }
+        [DataMember]
+        public IList<SubWayTicket> SubwayTicket { get; set; }
     }
 }

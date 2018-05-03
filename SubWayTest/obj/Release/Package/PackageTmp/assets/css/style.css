@@ -1,0 +1,16 @@
+﻿#languageChoice {
+  width: 250px;
+  height: 100px;
+  display: inline;
+  background-color: #FFBB00;
+  color: #BB5500;
+  margin: 0;
+  font-size: 35px;
+  cursor: pointer; }
+
+.dropdown-menu {
+  background-color: #e08d4b !important; }
+
+li a {
+  color: white; }
+

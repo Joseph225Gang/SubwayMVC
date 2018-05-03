@@ -13,10 +13,12 @@ var core_1 = require("@angular/core");
 var searchSedule_service_1 = require("./searchSedule.service");
 var subway_service_1 = require("../subway/subway.service");
 var ng2_translate_1 = require("ng2-translate");
+var moment = require("moment");
 var SearchSeduleComponent = (function () {
-    function SearchSeduleComponent(subwayService, translate) {
+    function SearchSeduleComponent(subwayService, translate, searchSeduleService) {
         this.subwayService = subwayService;
         this.translate = translate;
+        this.searchSeduleService = searchSeduleService;
         this.Status = searchSedule_service_1.Status;
         this.status = searchSedule_service_1.Status.Start;
         translate.addLangs(["en", "zh-tw"]);
@@ -24,9 +26,20 @@ var SearchSeduleComponent = (function () {
         var browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/en|zh-tw/) ? browserLang : 'zh-tw');
     }
+    SearchSeduleComponent.prototype.dateFormat = function (date) {
+        if (date != null)
+            var result = moment(date).format('YYYY/MM/DD');
+        return result;
+    };
     SearchSeduleComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         $('input').eq(0).datepicker();
+        this.searchSeduleService.asyncIndex().subscribe(function (resp) {
+            console.log(resp);
+            _this.ticketList = resp;
+        }, function (error) {
+            alert(error.json().message);
+        });
         this.subwayService.asyncGetDestinationList().subscribe(function (resp) {
             _this.destination = resp.Destination;
             console.log(resp);
@@ -52,9 +65,9 @@ var SearchSeduleComponent = (function () {
         core_1.Component({
             selector: 'searchSedule',
             templateUrl: './app/searchSedule/searchSedule.html',
-            providers: [subway_service_1.SubWayService]
+            providers: [subway_service_1.SubWayService, searchSedule_service_1.SearchSeduleService]
         }),
-        __metadata("design:paramtypes", [subway_service_1.SubWayService, ng2_translate_1.TranslateService])
+        __metadata("design:paramtypes", [subway_service_1.SubWayService, ng2_translate_1.TranslateService, searchSedule_service_1.SearchSeduleService])
     ], SearchSeduleComponent);
     return SearchSeduleComponent;
 }());

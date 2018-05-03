@@ -178,3 +178,7 @@ D:\Visual Studio\SubwayMVC\SubWayTest\bin\System.Web.Http.Owin.xml
 D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.dll
 D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.pdb
 D:\Visual Studio\SubwayMVC\SubWayTest\obj\Debug\SubWayTest.Web.csprojResolveAssemblyReference.cache
+D:\Visual Studio\SubwayMVC\SubWayTest\bin\SubWayTest.Domain.dll
+D:\Visual Studio\SubwayMVC\SubWayTest\bin\SubWayTest.Repository.dll
+D:\Visual Studio\SubwayMVC\SubWayTest\bin\SubWayTest.Domain.pdb
+D:\Visual Studio\SubwayMVC\SubWayTest\bin\SubWayTest.Repository.pdb

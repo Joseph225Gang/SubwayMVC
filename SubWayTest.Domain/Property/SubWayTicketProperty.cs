@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -52,8 +53,8 @@ namespace SubWayTest.Domain
         [DataMember]
         public TicketType TicketType { get; set; }
         [DataMember]
-        public SubWayMemberTicketInfo SubWayMemberTicketInfo { get; set; }
+        public virtual SubwayMember SubwayMember { get; set; }
         [DataMember]
-        public Guid SubWayMemberTicketInfoId { get; set; }
+        public Guid SubwayMemberId { get; set; }
     }
 }

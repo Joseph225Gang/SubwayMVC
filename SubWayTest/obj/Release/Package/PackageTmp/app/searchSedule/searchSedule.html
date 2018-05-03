@@ -1,0 +1,105 @@
+﻿<style>
+    *{
+        font-size:32px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    button{
+        border-radius:12px;
+    }
+</style>
+<section *ngIf="status==Status.Start">
+    <div class="col-md-5">
+        <label>{{'HOME.STARTINGPOINT' | translate }}</label>
+        <select [(ngModel)]="fromPlace">
+            <option *ngFor="let item of destination;let i=index" [value]="item.destination">{{item.destination}}</option>
+        </select><br />
+    </div>
+    <div class="col-md-7">
+        <div class="col-md-3" *ngFor="let item of destination;let i=index">
+            <input type="radio" name="from" [value]="item.destination" [(ngModel)]="fromPlace">{{item.destination}}
+        </div>
+    </div>
+    <div class="col-md-5">
+        <label>{{'HOME.DESTINATION' | translate }}</label>
+        <select [(ngModel)]="toPlace">
+            <option *ngFor="let item of destination;let i=index" [value]="item.destination">{{item.destination}}</option>
+        </select><br />
+    </div>
+    <div class="col-md-7">
+        <div class="col-md-3" *ngFor="let item of destination;let i=index">
+            <input type="radio" name="to" [value]="item.destination" [(ngModel)]="toPlace">{{item.destination}}
+        </div>
+    </div>
+    <label>{{'HOME.TIME' | translate }}</label>
+    <input type="text">
+    <button class="btn-primary" (click)="findSchedule()">送出</button>
+</section>
+<section *ngIf="status==Status.Search">
+    <button (click)="backToSchedule()">回到上一頁</button>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>出發時間</th>
+                <th>抵達時間</th>
+                <th>出發地</th>
+                <th>抵達點</th>
+                <th>價格</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of ticketList; let i=index;">
+                <td>{{dateFormat(item.StartTime)}}</td>
+                <td>{{dateFormat(item.ArrivalTime)}}</td>
+                <td>{{item.FromPlace}}</td>
+                <td>{{item.Destination}}</td>
+                <td>{{item.TicketPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table class="table table-bordered table-responsive col-md-8">
+        <thead>
+            <tr>
+                <th class="col-md-4">{{'HOME.STARTINGPOINT' | translate }}->{{'HOME.DESTINATION' | translate}}</th>
+                <th class="col-md-4">{{'HOME.TIME' | translate }}</th>
+                <th class="col-md-4">價錢</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-md-4">台北->基隆</td>
+                <td class="col-md-4">8:25AM->9:00AM</td>
+                <td class="col-md-4">$380</td>
+            </tr>
+            <tr>
+                <td class="col-md-4">台北->桃園</td>
+                <td class="col-md-4">8:25AM->9:10AM</td>
+                <td class="col-md-4">$420</td>
+            </tr>
+            <tr>
+                <td class="col-md-4">台北->基隆</td>
+                <td class="col-md-4">10:25AM->11:00AM</td>
+                <td class="col-md-4">$380</td>
+            </tr>
+            <tr>
+                <td class="col-md-4">台北->基隆</td>
+                <td class="col-md-4">15:25AM->16:00AM</td>
+                <td class="col-md-4">$380</td>
+            </tr>
+            <tr>
+                <td class="col-md-4">台北->新北</td>
+                <td class="col-md-4">13:25AM->13:50AM</td>
+                <td class="col-md-4">$400</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-md-4"></div>
+    <ul class="pagination col-md-8">
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+    </ul>
+</section>

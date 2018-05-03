@@ -1,0 +1,112 @@
+﻿<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+    #languageChoice {
+        width: 250px;
+        height: 100px;
+        display: inline;
+        background-color: #FFBB00;
+        color: #BB5500;
+        margin: 0;
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        background-color: #e08d4b !important;
+    }
+
+    li a {
+        color: white;
+    }
+</style>
+<section *ngIf="status==Status.Start">
+    <div id="languageChoice" (click)="translate.use('zh-tw')">{{'HOME.TAIWANESE' | translate }}</div>
+    <div id="languageChoice" (click)="translate.use('en')">{{'HOME.ENGLISH' | translate }}</div>
+    <div class="dropdown" style="display:inline">
+        <button class="btn btn-default dropdown-toggle" style="background-color:#FFBB00;color:	#BB5500;font-size:25px;" type="button" data-toggle="dropdown">
+            {{'HOME.BOOKING' | translate }}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a (click)="navigateSearchBooking()">{{'HOME.SEARCHBOOKING' | translate }}</a></li>
+            <li class="divider"></li>
+            <li><a (click)="navigateCancelBooking()">{{'HOME.CANCELBOOKING' | translate }}</a></li>
+            <li class="divider"></li>
+            <li><a (click)="navigateSearchSedule()">{{'HOME.SCHEDULTSEARCH' | translate }}</a></li>
+        </ul>
+    </div>
+    <div>
+    </div>
+    <button (click)="changeOpacity()" class="btn-default">Animation start</button>
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" [@visibilityChanged]="visibility">
+            <!-- Indicators -->
+            <ng-content></ng-content>
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="../../assets/img/train1.jpg" alt="train1" style="width:100%;height:350px" />
+                </div>
+
+                <div class="item">
+                    <img src="../../assets/img/train2.jpg" alt="train2" style="width:100%;height:350px" />
+                </div>
+
+                <div class="item">
+                    <img src="../../assets/img/train3.gif" alt="train3" style="width:100%;height:350px" />
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div style="position: fixed;top: 40%;left: 40%;">
+        <h1 style="color:blue">{{'HOME.WELCOME'|translate}}</h1>
+        <button (click)="enterBuyStatus()">{{'HOME.ENTERCENTER'|translate}}</button>
+    </div>
+</section>
+<section *ngIf="status==Status.Buy">
+    <button (click)="backtoStart()">{{'HOME.BACKTOSTART'|translate}}</button><br />
+    去程時間<input type="text" id="destinationDate">
+    去程地點:
+    <select (change)="showPrice()">
+        <option *ngFor="let item of destinationList.Destination;let i=index" [value]="item.destination">{{item.destination}}</option>
+    </select>
+    回程時間<input type="text" id="homeDate">
+    回程地點
+    <select (change)="showPrice()">
+        <option *ngFor="let item of destinationList.Destination;let i=index" [value]="item.destination">{{item.destination}}</option>
+    </select>
+    <br />
+    <input type="number" min="0" myIntegerOnly [(ngModel)]="numberTicket" />
+    <select (change)="showPrice()">
+        <option value="adult">成人票:{{adultAmount| currency:'USD':true:'1.2-2'}}</option>
+        <option value="child">兒童票:{{childAmount| currency:'USD':true:'1.2-2'}}</option>
+    </select>
+    <button (click)="finializePurchaseStatus()">購票</button>
+</section>
+<section *ngIf="status==Status.Finish">
+    <button (click)="backtoStart()">回首頁</button>
+    你購買了{{numberTicket}}張總共{{totalAmount}}元
+</section>
