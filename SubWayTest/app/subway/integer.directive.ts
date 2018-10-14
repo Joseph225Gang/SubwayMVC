@@ -4,10 +4,7 @@
     selector: '[myIntegerOnly]'
 })
 export class IntegerOnlyDirective {
-    // Allow decimal numbers and negative values
     private regex: RegExp = new RegExp(/^\d+$/g);
-    // Allow key codes for special events. Reflect :
-    // Backspace, tab, end, home
     private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home'];
 
     constructor(private el: ElementRef) {
